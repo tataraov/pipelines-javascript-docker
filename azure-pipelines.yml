@@ -1,4 +1,5 @@
 trigger:
+
 - master
 
 pool:
@@ -19,3 +20,7 @@ steps:
     artifactoryService: ArtifactoryCloud
     buildName: $(Build.DefinitionName)
     buildNumber: $(Build.BuildNumber)
+- task: ArtifactoryToolsInstaller@1
+  inputs:
+    artifactoryService: 'ArtifactoryCloud'
+    cliInstallationRepo: 'jcenter'
