@@ -11,8 +11,8 @@ variables:
 steps:
 - task: ArtifactoryToolsInstaller@1
   inputs:
-    artifactoryService: 'Artifactory'
-    cliInstallationRepo: 'jcenter'
+    artifactoryService: 'ArtifactoryCloud'
+    cliInstallationRepo: 'tata-cli'
     installExtractors: true
     extractorsInstallationRepo: 'jcenter'
 - task: Docker@2
@@ -23,12 +23,12 @@ steps:
     Dockerfile: app/Dockerfile
 - task: ArtifactoryPublishBuildInfo@1
   inputs:
-    artifactoryService: Artifactory
+    artifactoryService: ArtifactoryCloud
     buildName: $(Build.DefinitionName)
     buildNumber: $(Build.BuildNumber)
 - task: ArtifactoryGenericDownload@3
   inputs:
-    connection: 'Artifactory'
+    connection: 'ArtifactoryCloud'
     specSource: 'taskConfiguration'
     fileSpec: |
       {
