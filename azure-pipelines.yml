@@ -1,9 +1,4 @@
 trigger:
-- task: ArtifactoryPublishBuildInfo@1
-  inputs:
-    artifactoryService: 'ArtifactoryCloud'
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
 - master
 
 pool:
