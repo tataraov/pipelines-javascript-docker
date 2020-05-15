@@ -1,9 +1,4 @@
 trigger:
-- task: ArtifactoryPublishBuildInfo@1
-  inputs:
-    artifactoryService: ArtifactoryCloud
-    buildName: $(Build.DefinitionName)
-    buildNumber: $(Build.BuildNumber)
 - master
 
 pool:
@@ -19,3 +14,8 @@ steps:
     repository: $(imageName)
     command: build
     Dockerfile: app/Dockerfile
+- task: ArtifactoryPublishBuildInfo@1
+  inputs:
+    artifactoryService: ArtifactoryCloud
+    buildName: $(Build.DefinitionName)
+    buildNumber: $(Build.BuildNumber)
