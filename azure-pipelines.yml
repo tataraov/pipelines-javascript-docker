@@ -42,6 +42,9 @@ steps:
     artifactoryService: 'ArtifactoryCloud'
     targetRepo: 'tata-docker-local'
     imageName: 'seshu7trail.jfrog.io/$(imageName)'
+- task: ArtifactoryDocker@1
+  inputs:
+    command: 'push'
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
@@ -56,4 +59,4 @@ steps:
     artifactoryService: 'ArtifactoryCloud'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-    allowFailBuild: true
+    allowFailBuild: false
