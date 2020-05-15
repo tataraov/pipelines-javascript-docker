@@ -41,7 +41,7 @@ steps:
     command: 'push'
     artifactoryService: 'ArtifactoryCloud'
     targetRepo: 'tata-docker-virtual'
-    imageName: 'seshu7trail-tata-docker-virtual.jfrog.io/tata-docker-local:$(imageName)'
+    imageName: 'seshu7trail-tata-docker-virtual.jfrog.io/$(imageName)'
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
