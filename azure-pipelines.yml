@@ -26,4 +26,21 @@ steps:
     artifactoryService: ArtifactoryCloud
     buildName: $(Build.DefinitionName)
     buildNumber: $(Build.BuildNumber)
+- task: ArtifactoryGenericDownload@3
+  inputs:
+    connection: 'ArtifactoryCloud'
+    specSource: 'taskConfiguration'
+    fileSpec: |
+      {
+        "files": [
+          {
+            "pattern": "jcenter/*.*",
+            "target": "dependencies/files/"
+          }
+        ]
+      }
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    failNoOp: false
 
