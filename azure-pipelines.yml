@@ -9,6 +9,10 @@ variables:
   imageName: 'pipelines-javascript-docker'
 
 steps:
+- task: ArtifactoryToolsInstaller@1
+  inputs:
+    artifactoryService: 'ArtifactoryCloud'
+    cliInstallationRepo: 'jcenter'
 - task: Docker@2
   displayName: Build an image
   inputs:
@@ -20,7 +24,4 @@ steps:
     artifactoryService: ArtifactoryCloud
     buildName: $(Build.DefinitionName)
     buildNumber: $(Build.BuildNumber)
-- task: ArtifactoryToolsInstaller@1
-  inputs:
-    artifactoryService: 'ArtifactoryCloud'
-    cliInstallationRepo: 'jcenter'
+
