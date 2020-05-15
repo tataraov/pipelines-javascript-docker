@@ -16,7 +16,7 @@ steps:
 - task: Docker@2
   displayName: Build an image
   inputs:
-    repository: seshu7trail-tata-docker-local.jfrog.io/$(imageName):latest
+    repository: seshu7trail-tata-docker-local.jfrog.io/$(imageName)
     command: build
     Dockerfile: app/Dockerfile
 - task: ArtifactoryGenericDownload@3
@@ -41,7 +41,7 @@ steps:
     command: 'push'
     artifactoryService: 'ArtifactoryCloud'
     targetRepo: 'tata-docker-local'
-    imageName: 'seshu7trail-tata-docker-local.jfrog.io/$(imageName)'
+    imageName: 'seshu7trail-tata-docker-local.jfrog.io/$(imageName):$(Build.BuildId)'
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
