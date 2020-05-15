@@ -21,11 +21,6 @@ steps:
     repository: $(imageName)
     command: build
     Dockerfile: app/Dockerfile
-- task: ArtifactoryPublishBuildInfo@1
-  inputs:
-    artifactoryService: ArtifactoryCloud
-    buildName: $(Build.DefinitionName)
-    buildNumber: $(Build.BuildNumber)
 - task: ArtifactoryGenericDownload@3
   inputs:
     connection: 'ArtifactoryCloud'
@@ -43,4 +38,8 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     failNoOp: false
-
+- task: ArtifactoryPublishBuildInfo@1
+  inputs:
+    artifactoryService: ArtifactoryCloud
+    buildName: $(Build.DefinitionName)
+    buildNumber: $(Build.BuildNumber)
