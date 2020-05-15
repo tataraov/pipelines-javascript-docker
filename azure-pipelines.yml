@@ -16,7 +16,7 @@ steps:
 - task: Docker@2
   displayName: Build an image
   inputs:
-    repository: $(imageName)
+    repository: seshu7trail-tata-docker-local.jfrog.io/$(imageName)
     command: build
     Dockerfile: app/Dockerfile
 - task: ArtifactoryGenericDownload@3
