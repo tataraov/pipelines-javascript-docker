@@ -11,7 +11,7 @@ variables:
 steps:
 - task: ArtifactoryToolsInstaller@1
   inputs:
-    artifactoryService: 'ArtifactoryCloud'
+    artifactoryService: 'Artifactory'
     cliInstallationRepo: 'jcenter'
     installExtractors: true
     extractorsInstallationRepo: 'jcenter'
@@ -23,7 +23,7 @@ steps:
     Dockerfile: app/Dockerfile
 - task: ArtifactoryPublishBuildInfo@1
   inputs:
-    artifactoryService: ArtifactoryCloud
+    artifactoryService: Artifactory
     buildName: $(Build.DefinitionName)
     buildNumber: $(Build.BuildNumber)
 - task: ArtifactoryGenericDownload@3
