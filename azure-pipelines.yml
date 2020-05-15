@@ -28,7 +28,7 @@ steps:
     buildNumber: $(Build.BuildNumber)
 - task: ArtifactoryGenericDownload@3
   inputs:
-    connection: 'ArtifactoryCloud'
+    connection: 'Artifactory'
     specSource: 'taskConfiguration'
     fileSpec: |
       {
