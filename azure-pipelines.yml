@@ -1,7 +1,5 @@
 trigger:
-
 - master
-
 pool:
   vmImage: 'Ubuntu-16.04'
 
@@ -43,3 +41,9 @@ steps:
     artifactoryService: ArtifactoryCloud
     buildName: $(Build.DefinitionName)
     buildNumber: $(Build.BuildNumber)
+- task: ArtifactoryXrayScan@1
+  inputs:
+    artifactoryService: 'ArtifactoryCloud'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    allowFailBuild: true
