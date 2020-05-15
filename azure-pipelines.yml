@@ -36,6 +36,16 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     failNoOp: false
+- task: ArtifactoryDocker@1
+  inputs:
+    command: 'push'
+    artifactoryService: 'ArtifactoryCloud'
+    targetRepo: 'tata-docker-local'
+    imageName: '$(imageName)'
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    includeEnvVars: true
 - task: ArtifactoryPublishBuildInfo@1
   inputs:
     artifactoryService: ArtifactoryCloud
