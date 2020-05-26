@@ -40,3 +40,13 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     allowFailBuild: false
+- task: ArtifactoryBuildPromotion@1
+  inputs:
+    artifactoryService: 'ArtifactoryCloud'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    targetRepo: 'tata-docker-release'
+    status: 'Released'
+    comment: 'promoting image'
+    sourceRepo: 'tata-docker-local'
+    includeDependencies: true
