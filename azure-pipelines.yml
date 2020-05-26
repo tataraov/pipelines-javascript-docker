@@ -47,6 +47,7 @@ steps:
     buildNumber: '$(Build.BuildNumber)'
     targetRepo: 'tata-docker-release'
     status: 'Released'
-    comment: 'promoting image'
     sourceRepo: 'tata-docker-local'
     includeDependencies: true
+    copy: true
+    dryRun: false
