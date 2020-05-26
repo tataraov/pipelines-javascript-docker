@@ -19,23 +19,6 @@ steps:
     repository: seshu7trail-tata-docker-local.jfrog.io/$(imageName)
     command: build
     Dockerfile: app/Dockerfile
-- task: ArtifactoryGenericDownload@3
-  inputs:
-    connection: 'ArtifactoryCloud'
-    specSource: 'taskConfiguration'
-    fileSpec: |
-      {
-        "files": [
-          {
-            "pattern": "jcenter/*.*",
-            "target": "dependencies/files/"
-          }
-        ]
-      }
-    collectBuildInfo: true
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
-    failNoOp: false
 - task: ArtifactoryDocker@1
   inputs:
     command: 'push'
