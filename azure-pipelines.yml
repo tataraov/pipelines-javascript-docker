@@ -45,9 +45,9 @@ steps:
     artifactoryService: 'ArtifactoryCloud'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-    targetRepo: 'tata-docker-release'
+    targetRepo: 'tata-docker-virtual'
     status: 'Released'
     sourceRepo: 'tata-docker-local'
     includeDependencies: true
-    copy: true
+    copy: false
     dryRun: false
