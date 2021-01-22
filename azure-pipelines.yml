@@ -11,15 +11,32 @@ steps:
   inputs:
     artifactoryService: 'Kayal'
     cliInstallationRepo: 'jfrog-cli'
+    installExtractors: true
+    extractorsInstallationRepo: 'jcenter'
 - task: Docker@2
   displayName: Build an image
   inputs:
-    repository: docker-local.jfrog.io/$(imageName)
+    repository: swarnenduk-docker-local.jfrog.io/$(imageName)
     command: build
     Dockerfile: app/Dockerfile
+- task: ArtifactoryDocker@1
+  inputs:
+    command: 'push'
+    artifactoryService: 'Kayal'
+    targetRepo: 'docker-local-new'
+    imageName: 'swarnenduk-docker-local.jfrog.io/$(imageName):$(Build.BuildId)'
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    includeEnvVars: true
+- task: ArtifactoryPublishBuildInfo@1
+  inputs:
+    artifactoryService: Kayal
+    buildName: $(Build.DefinitionName)
+    buildNumber: $(Build.BuildNumber)
 - task: ArtifactoryXrayScan@1
   inputs:
-    artifactoryService: 'ArtifactoryCloud'
+    artifactoryService: 'Kayal'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     allowFailBuild: false
