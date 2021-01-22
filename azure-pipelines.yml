@@ -11,8 +11,6 @@ steps:
   inputs:
     artifactoryService: 'Kayal'
     cliInstallationRepo: 'jcenter'
-    installExtractors: true
-    extractorsInstallationRepo: 'jcenter'
 - task: Docker@2
   displayName: Build an image
   inputs:
