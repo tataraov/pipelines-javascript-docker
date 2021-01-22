@@ -10,7 +10,7 @@ steps:
 - task: ArtifactoryToolsInstaller@1
   inputs:
     artifactoryService: 'Kayal'
-    cliInstallationRepo: 'tata-cli'
+    cliInstallationRepo: 'jcenter'
     installExtractors: true
     extractorsInstallationRepo: 'jcenter'
 - task: Docker@2
