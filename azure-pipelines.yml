@@ -17,16 +17,6 @@ steps:
     repository: docker-local.jfrog.io/$(imageName)
     command: build
     Dockerfile: app/Dockerfile
-- task: ArtifactoryDocker@1
-  inputs:
-    command: 'push'
-    artifactoryService: 'ArtifactoryCloud'
-    targetRepo: 'docker-local-new'
-    imageName: 'docker-local.jfrog.io/$(imageName):$(Build.BuildId)'
-    collectBuildInfo: true
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
-    includeEnvVars: true
 - task: ArtifactoryPublishBuildInfo@1
   inputs:
     artifactoryService: ArtifactoryCloud
