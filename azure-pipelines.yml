@@ -10,7 +10,7 @@ steps:
 - task: ArtifactoryToolsInstaller@1
   inputs:
     artifactoryService: 'Kayal'
-    cliInstallationRepo: 'jcenter'
+    cliInstallationRepo: 'jfrog-cli'
 - task: Docker@2
   displayName: Build an image
   inputs:
