@@ -23,8 +23,8 @@ steps:
   inputs:
     command: 'push'
     artifactoryService: 'Kayal'
-    targetRepo: 'docker-local-new'
-    imageName: 'swarnenduk-docker-local-new.jfrog.io/$(imageName):$(Build.BuildId)'
+    targetRepo: 'docker-local'
+    imageName: 'swarnenduk-docker-local.jfrog.io/$(imageName):$(Build.BuildId)'
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
