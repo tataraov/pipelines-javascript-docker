@@ -9,22 +9,22 @@ variables:
 steps:
 - task: ArtifactoryToolsInstaller@1
   inputs:
-    artifactoryService: 'ArtifactoryCloud'
+    artifactoryService: 'Kayal'
     cliInstallationRepo: 'tata-cli'
     installExtractors: true
     extractorsInstallationRepo: 'jcenter'
 - task: Docker@2
   displayName: Build an image
   inputs:
-    repository: seshu7trail-tata-docker-local.jfrog.io/$(imageName)
+    repository: docker-local.jfrog.io/$(imageName)
     command: build
     Dockerfile: app/Dockerfile
 - task: ArtifactoryDocker@1
   inputs:
     command: 'push'
     artifactoryService: 'ArtifactoryCloud'
-    targetRepo: 'tata-docker-local'
-    imageName: 'seshu7trail-tata-docker-local.jfrog.io/$(imageName):$(Build.BuildId)'
+    targetRepo: 'docker-local-new'
+    imageName: 'docker-local.jfrog.io/$(imageName):$(Build.BuildId)'
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
