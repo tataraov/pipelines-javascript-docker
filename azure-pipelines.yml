@@ -17,11 +17,6 @@ steps:
     repository: docker-local.jfrog.io/$(imageName)
     command: build
     Dockerfile: app/Dockerfile
-- task: ArtifactoryPublishBuildInfo@1
-  inputs:
-    artifactoryService: ArtifactoryCloud
-    buildName: $(Build.DefinitionName)
-    buildNumber: $(Build.BuildNumber)
 - task: ArtifactoryXrayScan@1
   inputs:
     artifactoryService: 'ArtifactoryCloud'
