@@ -39,4 +39,4 @@ steps:
     artifactoryService: 'Kayal'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-    allowFailBuild: false
+    allowFailBuild: true
