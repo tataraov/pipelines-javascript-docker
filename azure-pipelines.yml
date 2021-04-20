@@ -11,8 +11,8 @@ steps:
   inputs:
     artifactoryService: 'Kayal'
     cliInstallationRepo: 'jfrog-cli'
-    installExtractors: true
-    extractorsInstallationRepo: 'jcenter'
+    installCustomVersion: true
+    cliVersion: '1.46.0'
 - task: ArtifactoryGenericDownload@3
   inputs:
     connection: 'Kayal'
