@@ -13,6 +13,26 @@ steps:
     cliInstallationRepo: 'jfrog-cli'
     installExtractors: true
     extractorsInstallationRepo: 'jcenter'
+- task: ArtifactoryGenericDownload@3
+  inputs:
+    connection: 'Kayal'
+    specSource: 'taskConfiguration'
+    fileSpec: |
+      {
+        "files": [
+          {
+            "pattern": "warnenduk-docker-local/*",
+            "target": "dependencies/files/"
+          }
+        ]
+      }
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    includeEnvVars: true
+    dryRun: true
+    failNoOp: false
+    insecureTls: true
 - task: Docker@2
   displayName: Build an image
   inputs:
